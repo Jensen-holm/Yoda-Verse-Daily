@@ -9,22 +9,18 @@ HEADERS = {
 }
 
 
-def translate(text: str):
+def translate_random_verse() -> str:
+    """
+    :return: a bible verse in yoda speech
+    """
     payload = {
-        "question": f"Re-write this sentence as if yoda from star wars said it: '{text}'",
-        "max_response_time": 15
+        "question": f"Pick a random bible verse and translate it into how yoda from star wars would say it",
+        "max_response_time": 30,
     }
-
     r = requests.request(
         "POST",
         URL,
         json=payload,
         headers=HEADERS,
     )
-
     return r.text
-
-
-if __name__ == "__main__":
-    test = "For the grace of God has appeared that offers salvation to all people."
-    print(translate(test))
