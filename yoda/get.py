@@ -12,7 +12,7 @@ HEADERS = {
 def translate(text: str):
     payload = {
         "question": f"Re-write this sentence as if yoda from star wars said it: '{text}'",
-        "max_response_time": 30
+        "max_response_time": 15
     }
 
     r = requests.request(

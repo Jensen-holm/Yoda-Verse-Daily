@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from book import Book
 import requests
-import os
 
 URL = "http://home.snu.edu/~hculbert/chapters.htm"
 
