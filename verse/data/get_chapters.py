@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
+from book import Book
 import requests
 import os
-
 
 URL = "http://home.snu.edu/~hculbert/chapters.htm"
 
@@ -9,14 +9,14 @@ URL = "http://home.snu.edu/~hculbert/chapters.htm"
 def get_chapters():
     r = requests.get(URL)
     soup = BeautifulSoup(r.text, features="lxml")
-    ol = soup.find_all("ol")
+    ol = soup.find_all("ol")[0]
 
-    books = {}
-    for li in ol:
-        print(li)
+    books = []
+    for book in ol:
+        print(book)
 
-    return books
+    return
 
 
 if __name__ == "__main__":
-    print(get_chapters())
+    get_chapters()

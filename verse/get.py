@@ -1,5 +1,5 @@
 import requests
-from verse.error import is_error
+from verse.error import is_error, error_message
 
 URL = "https://ajith-holy-bible.p.rapidapi.com/GetVerses"
 HEADERS = {
@@ -8,7 +8,7 @@ HEADERS = {
 }
 
 
-def get_verse(qs: dict[str, str]):
+def get_verse(query: dict[str, str]):
     """
     requests the Holy Bible API with the given
     query string as an argument
@@ -19,10 +19,9 @@ def get_verse(qs: dict[str, str]):
         "GET",
         URL,
         headers=HEADERS,
-        params=qs,
+        params=query,
     )
 
-    # check for errors in the request
     if is_error(r):
-        raise f"Error calling the api to get bible verse."
+        error_message(URL, r.status_code)
     return r.text

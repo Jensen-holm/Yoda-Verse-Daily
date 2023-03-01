@@ -1,12 +1,19 @@
-from verse.get import get_verse
+import verse.get as bible
+import yoda.get as yoda
 
 
-def main():
-    querystring = {"Verse": "1", "chapter": "1", "Book": "Luke"}
-    return get_verse(
-        qs=querystring
-    )
+querystring = {
+    "Verse": "1",
+    "chapter": "1",
+    "Book": "Luke",
+}
+
+
+def main(verse_query: dict[str, str]) -> str:
+    verse = bible.get_verse(query=verse_query)
+    translated = yoda.translate(verse)
+    return translated
 
 
 if __name__ == "__main__":
-    print(main())
+    print(main(querystring))

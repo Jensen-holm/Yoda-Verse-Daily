@@ -8,3 +8,10 @@ def is_error(r) -> bool:
     if not 200 <= r.status_code <= 300:
         return True
     return False
+
+
+def error_message(
+        url: str, 
+        status_code: int
+    ) -> str:
+    return f"{status_code} error in response body when requesting '{url}'"
