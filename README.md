@@ -1,1 +1,2 @@
-# Daily-Verse
+# Daily Yoda Bible Wisdom
+
