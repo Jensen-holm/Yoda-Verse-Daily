@@ -1,21 +1,25 @@
 import requests
-from verse.error import is_error, error_message
 
-URL = "http://yodaspeak.org/"
+URL = "https://yodish.p.rapidapi.com/yoda.json"
+
+headers = {
+    "X-RapidAPI-Key": "cd29d7a075mshb08572d8da1b1b4p153cd5jsn416ef45e8580",
+    "X-RapidAPI-Host": "yodish.p.rapidapi.com"
+}
 
 
-def translate(data) -> str:
+def translate(text: str) -> str:
     r = requests.request(
         "POST",
         URL,
-        data=data,
+        headers=headers,
+        params={
+            "text": text,
+        }
     )
-    if is_error(r):
-        raise error_message(URL, r.status_code)
     return r.text
 
 
 if __name__ == "__main__":
     test = "For the grace of God has appeared that offers salvation to all people."
-    data = {"text": test}
-    print(translate(data))
+    print(translate(test))
