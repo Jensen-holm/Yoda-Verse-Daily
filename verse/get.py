@@ -9,6 +9,12 @@ HEADERS = {
 
 
 def get_verse(qs: dict[str, str]):
+    """
+    requests the Holy Bible API with the given
+    query string as an argument
+    :param qs: query string
+    :return: text response from the api
+    """
     r = requests.request(
         "GET",
         URL,
@@ -17,7 +23,6 @@ def get_verse(qs: dict[str, str]):
     )
 
     # check for errors in the request
-    e = is_error(r)
     if is_error(r):
         raise f"Error calling the api to get bible verse."
     return r.text
