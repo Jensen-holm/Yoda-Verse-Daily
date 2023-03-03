@@ -9,7 +9,9 @@ app = Flask(__name__)
 def index():
     r = yoda.preach_yoda()
     print(r)
-    return r
+    return make_request(
+        json=jsonify(r)
+    )
 
 if __name__ == "__main__":
     app.run()
