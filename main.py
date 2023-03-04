@@ -1,5 +1,8 @@
-from preach.preach import preach, center_multiline_output
 import sys
+from preach.preach import (
+    preach,
+    center_multiline_output,
+)
 
 
 def main():
@@ -9,7 +12,7 @@ def main():
     bible verse to be said by
     :return: prints the output from the api
     """
-    person = sys.argv[1]
+    person = " ".join(sys.argv[1:])
     center_multiline_output(
         preach(person=person)
     )

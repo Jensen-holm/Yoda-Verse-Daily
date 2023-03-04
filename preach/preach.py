@@ -12,8 +12,7 @@ HEADERS = {
 
 
 def prompt(person: str) -> str:
-    return f"tell me a bible verse as if you are {person} and " \
-           "then tell me the chapter and verse it would be in the bible"
+    return f"Tell me a random bible verse as if you are {person} saying it"
 
 
 def center_multiline_output(string: str) -> None:
